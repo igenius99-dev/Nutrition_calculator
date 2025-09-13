@@ -79,7 +79,17 @@ public
 .out
 .storybook-out
 
+# Temporary folders
+tmp/
+temp/
 
+# Keep temp_assets folder but allow image files
+client/temp_assets/*
+!client/temp_assets/.gitkeep
+!client/temp_assets/*.jpg
+!client/temp_assets/*.jpeg
+!client/temp_assets/*.png
+!client/temp_assets/*.webp
 
 # Editor directories and files
 .vscode/
