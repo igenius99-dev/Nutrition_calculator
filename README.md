@@ -1,14 +1,16 @@
-# 🍎 Nutrition Planner
+# 📸 MenuNutri - Smart Restaurant Menu Analyzer
 
-A full-stack nutrition planning application built with React, Node.js, and Express. Track your nutrition, plan healthy meals, and maintain a balanced diet.
+A revolutionary nutrition app that analyzes restaurant menus from photos! Simply snap a photo of any restaurant menu, and get instant nutritional analysis and health recommendations for each dish.
 
 ## 🚀 Features
 
-- **Frontend**: Modern React application with Vite
-- **Backend**: Express.js API server
-- **Real-time**: Live API integration between frontend and backend
-- **Responsive**: Mobile-friendly design
-- **Modern UI**: Beautiful gradient design with glassmorphism effects
+- **📸 Photo Upload**: Drag & drop or click to upload menu photos
+- **🤖 AI Analysis**: Smart menu analysis with health scoring (coming soon)
+- **📊 Nutrition Insights**: Detailed calorie counts and health recommendations
+- **🎨 Modern UI**: Beautiful gradient design with glassmorphism effects
+- **📱 Responsive**: Mobile-friendly design for on-the-go use
+- **⚡ Real-time**: Instant analysis and recommendations
+- **💾 Local Storage**: Photos saved to temp_assets folder
 
 ## 📁 Project Structure
 
@@ -124,20 +126,24 @@ If you prefer to set up each part separately:
 
 - ✅ Modern React frontend with Vite
 - ✅ Express.js backend with middleware
-- ✅ API integration between frontend and backend
-- ✅ Responsive design with glassmorphism effects
-- ✅ Food database with nutrition information
-- ✅ Health check endpoint
+- ✅ Photo upload with drag & drop interface
+- ✅ Image storage in temp_assets folder
+- ✅ Beautiful glassmorphism UI design
+- ✅ Menu analysis simulation
+- ✅ Health scoring system
+- ✅ Responsive mobile design
+- ✅ Real-time upload progress
 - ✅ Error handling and loading states
 
 ### Planned Features
 
-- 🔄 User authentication
-- 🔄 Meal planning and tracking
-- 🔄 Nutrition goal setting
-- 🔄 Food search and filtering
-- 🔄 Data persistence with database
-- 🔄 User profiles and history
+- 🔄 AI-powered menu text recognition (OCR)
+- 🔄 Real nutrition database integration
+- 🔄 Restaurant-specific recommendations
+- 🔄 User preferences and dietary restrictions
+- 🔄 Social sharing of healthy choices
+- 🔄 Offline menu analysis
+- 🔄 Multi-language support
 
 ## 🛠️ Development Scripts
 
