@@ -58,7 +58,8 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.get('/api/health', (req, res) => {
   res.json({ 
-    message: 'MenuNutri API is running!',
+    message: 'MenuMaven API is running!',
+    description: 'Your smart guide to restaurant nutrition',
     timestamp: new Date().toISOString()
   });
 });

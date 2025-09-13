@@ -1,7 +1,7 @@
 {
-  "name": "nutrition-planner-server",
+  "name": "menumaven-server",
   "version": "1.0.0",
-  "description": "Express backend for nutrition planner",
+  "description": "Express backend for MenuMaven - smart restaurant nutrition analysis",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
