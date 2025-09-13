@@ -1,13 +1,27 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { Camera, Sparkles, Heart, Zap, Shield, Users, ArrowRight, Star, CheckCircle, Target, Clock, TrendingUp, Award, Smartphone, Utensils } from 'lucide-react'
+import { useNavigate, Link } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContext'
+import { Camera, Sparkles, Heart, Zap, Shield, Users, ArrowRight, Star, CheckCircle, Target, Clock, TrendingUp, Award, Smartphone, Utensils, LogOut } from 'lucide-react'
 import './LandingPage.css'
 
 const LandingPage = () => {
   const navigate = useNavigate()
+  const { currentUser, logout } = useAuth()
 
   const handleGetStarted = () => {
-    navigate('/app')
+    if (currentUser) {
+      navigate('/app')
+    } else {
+      navigate('/login')
+    }
+  }
+
+  const handleLogout = async () => {
+    try {
+      await logout()
+    } catch (error) {
+      console.error('Failed to log out')
+    }
   }
 
   const features = [
@@ -92,6 +106,31 @@ const LandingPage = () => {
 
   return (
     <div className="landing-page">
+      {/* Header */}
+      <header className="header">
+        <div className="header-content">
+          <div className="logo">
+            <Camera size={24} />
+            <span>MenuMaven</span>
+          </div>
+          <nav className="nav">
+            {currentUser ? (
+              <div className="user-menu">
+                <span className="user-phone">{currentUser.phoneNumber || 'Authenticated'}</span>
+                <button className="logout-btn" onClick={handleLogout}>
+                  <LogOut size={16} />
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <div className="auth-buttons">
+                <Link to="/login" className="nav-link">Sign In</Link>
+              </div>
+            )}
+          </nav>
+        </div>
+      </header>
+
       {/* Floating Particles */}
       <div className="particles">
         {[...Array(20)].map((_, i) => (
@@ -116,10 +155,7 @@ const LandingPage = () => {
         </div>
         
         <div className="hero-content">
-          <div className="hero-badge">
-            <Star size={16} />
-            <span>Revolutionary Nutrition App</span>
-          </div>
+         
           
           <h1 className="hero-title">
             <span className="gradient-text">MenuMaven</span>
