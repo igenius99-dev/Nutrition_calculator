@@ -14,32 +14,44 @@ const LandingPage = () => {
     {
       icon: <Camera size={32} />,
       title: "Smart Menu Scanning",
-      description: "Snap any restaurant menu and instantly get detailed nutritional breakdowns with AI-powered analysis"
+      description: "Snap any restaurant menu and instantly get detailed nutritional breakdowns with AI-powered analysis",
+      image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=300&fit=crop&crop=center",
+      imageAlt: "Person taking photo of restaurant menu with smartphone"
     },
     {
       icon: <Target size={32} />,
       title: "Calorie & Protein Tracking",
-      description: "Set daily goals and track your intake across multiple meals to stay within your budget"
+      description: "Set daily goals and track your intake across multiple meals to stay within your budget",
+      image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=300&fit=crop&crop=center",
+      imageAlt: "Nutrition tracking dashboard with calories and protein goals"
     },
     {
       icon: <Clock size={32} />,
       title: "Multi-Meal Planning",
-      description: "Plan your entire day's meals across different restaurants to meet your nutrition goals"
+      description: "Plan your entire day's meals across different restaurants to meet your nutrition goals",
+      image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=300&fit=crop&crop=center",
+      imageAlt: "Multiple restaurant meals planned for the day"
     },
     {
       icon: <TrendingUp size={32} />,
       title: "Smart Recommendations",
-      description: "Get personalized suggestions based on your dietary preferences and health goals"
+      description: "Get personalized suggestions based on your dietary preferences and health goals",
+      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop&crop=center",
+      imageAlt: "Healthy food recommendations and suggestions"
     },
     {
       icon: <Award size={32} />,
       title: "Health Scoring",
-      description: "See nutrition grades for every menu item with our modern visual scoring system"
+      description: "See nutrition grades for every menu item with our modern visual scoring system",
+      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop&crop=center",
+      imageAlt: "Nutrition grade scoring system display"
     },
     {
       icon: <Smartphone size={32} />,
       title: "Mobile-First Design",
-      description: "Optimized for busy lifestyles - make smart choices on the go, anywhere, anytime"
+      description: "Optimized for busy lifestyles - make smart choices on the go, anywhere, anytime",
+      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop&crop=center",
+      imageAlt: "Mobile app interface for nutrition tracking"
     }
   ]
 
@@ -80,6 +92,21 @@ const LandingPage = () => {
 
   return (
     <div className="landing-page">
+      {/* Floating Particles */}
+      <div className="particles">
+        {[...Array(20)].map((_, i) => (
+          <div 
+            key={i} 
+            className="particle"
+            style={{
+              left: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${5 + Math.random() * 10}s`,
+            }}
+          />
+        ))}
+      </div>
+
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-background">
@@ -110,9 +137,7 @@ const LandingPage = () => {
               Get Started Free
               <ArrowRight size={20} />
             </button>
-            <button className="secondary-button">
-              Watch Demo
-            </button>
+           
           </div>
           
           <div className="hero-stats">
@@ -137,11 +162,22 @@ const LandingPage = () => {
           <div className="features-grid">
             {features.map((feature, index) => (
               <div key={index} className="feature-card">
-                <div className="feature-icon">
-                  {feature.icon}
+                <div className="feature-image">
+                  <img 
+                    src={feature.image} 
+                    alt={feature.imageAlt}
+                    loading="lazy"
+                  />
+                  <div className="feature-overlay">
+                    <div className="feature-icon">
+                      {feature.icon}
+                    </div>
+                  </div>
                 </div>
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
+                <div className="feature-content">
+                  <h3>{feature.title}</h3>
+                  <p>{feature.description}</p>
+                </div>
               </div>
             ))}
           </div>
