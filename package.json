@@ -7,13 +7,14 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd server && npm run dev",
     "client": "cd client && npm run dev",
-    "build": "cd client && npm run build",
+    "build": "cd client && npm install && npm run build",
     "build:server": "cd server && npm install --production",
     "build:all": "npm run install-all && npm run build",
     "start": "cd server && npm start",
     "start:prod": "NODE_ENV=production npm start",
     "install-all": "npm install && cd server && npm install && cd ../client && npm install",
-    "heroku-postbuild": "npm run build:all"
+    "heroku-postbuild": "npm run build:all",
+    "vercel-build": "cd client && npm install && npm run build"
   },
   "keywords": ["nutrition", "planner", "react", "express", "node"],
   "author": "",
