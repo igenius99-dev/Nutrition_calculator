@@ -8,12 +8,20 @@
     "server": "cd server && npm run dev",
     "client": "cd client && npm run dev",
     "build": "cd client && npm run build",
+    "build:server": "cd server && npm install --production",
+    "build:all": "npm run install-all && npm run build",
     "start": "cd server && npm start",
-    "install-all": "npm install && cd server && npm install && cd ../client && npm install"
+    "start:prod": "NODE_ENV=production npm start",
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install",
+    "heroku-postbuild": "npm run build:all"
   },
   "keywords": ["nutrition", "planner", "react", "express", "node"],
   "author": "",
   "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
   "devDependencies": {
     "concurrently": "^8.2.2"
   }
