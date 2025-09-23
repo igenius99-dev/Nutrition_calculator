@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import { useNavigate, Link } from 'react-router-dom'
 import { Phone, ArrowRight, ArrowLeft } from 'lucide-react'
+import { clearRecaptchaVerifier } from '../firebase/config'
 import './Login.css'
 
 const Login = () => {
@@ -14,6 +15,13 @@ const Login = () => {
   
   const { sendOTP, loginWithGoogle } = useAuth()
   const navigate = useNavigate()
+
+  // Cleanup reCAPTCHA when component unmounts
+  useEffect(() => {
+    return () => {
+      clearRecaptchaVerifier()
+    }
+  }, [])
 
   const handlePhoneSubmit = async (e) => {
     e.preventDefault()
@@ -74,10 +82,13 @@ const Login = () => {
     try {
       setError('')
       setLoading(true)
+      console.log('Attempting Google login...')
       await loginWithGoogle()
+      console.log('Google login successful, navigating to app...')
       navigate('/app')
     } catch (error) {
-      setError('Failed to sign in with Google')
+      console.error('Google login error in component:', error)
+      setError(error.message || 'Failed to sign in with Google')
     }
     setLoading(false)
   }

@@ -205,9 +205,7 @@ const LandingPage = () => {
                     loading="lazy"
                   />
                   <div className="feature-overlay">
-                    <div className="feature-icon">
-                      {feature.icon}
-                    </div>
+                    
                   </div>
                 </div>
                 <div className="feature-content">

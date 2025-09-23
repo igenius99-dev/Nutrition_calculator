@@ -273,6 +273,15 @@
   }
 }
 
+/* reCAPTCHA container - keep invisible */
+#recaptcha-container {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .auth-container {

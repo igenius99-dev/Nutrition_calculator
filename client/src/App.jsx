@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider } from './contexts/AuthContext'
 import LandingPage from './components/LandingPage'
-import AppPage from './components/AppPage'
+import ModernAppPage from './components/ModernAppPage'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import ProtectedRoute from './components/ProtectedRoute'
@@ -21,7 +21,7 @@ function App() {
               path="/app" 
               element={
                 <ProtectedRoute>
-                  <AppPage />
+                  <ModernAppPage />
                 </ProtectedRoute>
               } 
             />
